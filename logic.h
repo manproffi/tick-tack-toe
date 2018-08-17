@@ -9,7 +9,7 @@ class logic: public QAbstractListModel
     Q_OBJECT
     Q_PROPERTY(QString winner READ getWinner WRITE setWinner NOTIFY winnerChanged)
 public:
-    explicit logic(QObject *parent = 0);
+    explicit logic(QObject *parent = nullptr);
 
     enum Roles {
         TextRole = Qt::UserRole + 1

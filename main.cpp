@@ -1,6 +1,7 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 #include "logic.h"
+#include <QtQml>
 
 int main(int argc, char *argv[])
 {

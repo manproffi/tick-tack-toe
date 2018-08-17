@@ -14,19 +14,25 @@ Window {
     Rectangle {
         id: base
         anchors.fill: parent;
-        color: "green"
+
+        Image {
+            id: background_image
+            source: "file://Users/sprotsen/tick-tack-toe/background.jpg"
+        }
 
         Row {
             id: block_text
             anchors.horizontalCenter: parent.horizontalCenter
             spacing: 100
             Text {
-                font.pointSize: 24
+                font.pointSize: 36
                 text: "Player 1: 'X'";
+                color: "green"
             }
             Text {
-                font.pointSize: 24
+                font.pointSize: 36
                 text: "Player 2: 'O'";
+                color: "green"
             }
         }
         Button {
@@ -35,16 +41,20 @@ Window {
             anchors.topMargin: 15
             anchors.horizontalCenter: parent.horizontalCenter
             text: "Repeat"
-            width: 100
-            height: 34
+            width: 120
+            height: 50
             style: ButtonStyle {
+                background: Rectangle {
+                    opacity: 0
+                }
                 label: Text {
                     renderType: Text.NativeRendering
                     verticalAlignment: Text.AlignVCenter
                     horizontalAlignment: Text.AlignHCenter
                     font.family: "Helvetica"
-                    font.pointSize: 20
+                    font.pointSize: 36
                     text: control.text
+                    color: "yellow"
                 }
             }
             onClicked: {
@@ -66,17 +76,25 @@ Window {
 
             Repeater {
                 model: dataModel
-                Rectangle {
+                Button {
                    width: 120;
                    height: 120;
+
+                   style: ButtonStyle {
+                       background: Rectangle {
+                           opacity: 0.2
+                       }
+                   }
 
                    Text {
                        anchors.fill: parent;
                        verticalAlignment: Text.AlignVCenter
                        horizontalAlignment: Text.AlignHCenter
-                       font.pointSize: 30
+                       font.pointSize: 40
+                       font.bold: true
                        text: model.text
                    }
+
                    MouseArea {
                        anchors.fill: parent
                        onClicked: {
@@ -86,14 +104,13 @@ Window {
                 }
             }
         }
-
     }
+
     Item {
         anchors.fill: parent
-        Rectangle
+        Item
         {
             id: rect
-            color: base.color
             width: 300
             height: 100
             anchors.bottom: parent.bottom
@@ -104,7 +121,7 @@ Window {
             {
                 id: tmpText
                 anchors.fill: parent
-                font.pointSize: 24
+                font.pointSize: 36
                 color: "red"
                 verticalAlignment: Text.AlignVCenter
                 horizontalAlignment: Text.AlignHCenter
